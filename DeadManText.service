@@ -1,0 +1,9 @@
+[Unit]
+Description=DeadMan switch for servers
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /var/lib/DeadManText/DeadManText.py
+
+[Install]
+WantedBy=multi-user.target

@@ -21,9 +21,10 @@ class Telegram:
         self.bot_chatID = "/sendMessage?chat_id=" + data['chatID']
 
     def message(self, out):
-        mess = f"""{datetime.now().strftime("%a    %m/%d/%Y    %I:%M:%S%p")} :\n"""
+        mess = 'time : {} \n'.format(datetime.now().strftime("%a    %m/%d/%Y    %I:%M:%S%p"))
+
         for serv in out:
-            mess += f"""Error with:     {serv}\n"""
+            mess += 'Error with:     {} \n'.format(serv)
         return mess
 
     def send_message(self, out):
@@ -58,7 +59,6 @@ class PingServers:
 
     def remove_server(self, out):
         for serv in out:
-            print(serv)
             del self.servers[serv]
 
 
@@ -88,7 +88,7 @@ def main(logf):
             # so it doesn't keep messaging me
             ping.remove_server(out)
         # Wait one hour
-        time.sleep(60*60)
+        time.sleep(60*30)
 
 
 if __name__ == "__main__":
